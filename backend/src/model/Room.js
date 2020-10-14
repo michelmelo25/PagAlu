@@ -2,16 +2,17 @@ const mongoose = require("mongoose");
 
 const RoomSchema = new mongoose.Schema(
   {
-    andar: {
+    nome: {
       type: String,
       required: true
     },
-    numero: {
+    contas: Array,
+    adm: {
       type: String,
       required: true
     },
-    morador: {
-        type: String,
+    membros: {
+        type: Array,
         required: true
     }
   },
