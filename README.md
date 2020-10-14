@@ -5,13 +5,12 @@ O projeto visa a criação de um sistema para controle de contas. O mesmo está 
 </p>
 
 
-<p>
-O projeto esta sendo desenvolvida com <b>Node.js</b> e <b>React.js</b>. <br>
-Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a baixo para instalar todas as dependencias nessesarias. <br>
-	`npm init`
-Para iniciar o servidor utilize o comendo.<br>
-	`npm start`
-</p>
+<p>O projeto esta sendo desenvolvida com <b>Node.js</b> e <b>React.js</b>. </p>
+Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a baixo para <p>instalar todas as dependencias nessesarias.</p>
+	`<npm init>`
+<p> Para iniciar o servidor utilize o comendo.</p>
+	`<npm start>`
+
 
 
 1. <b>Funcionalidades</b>
