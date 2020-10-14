@@ -10,7 +10,7 @@ Banco de Dados PagAlu
 			-id (PK)
 			-nome
 			-valor
-			-vencimento ()DD/MM/AAAA)
+			-vencimento (DD/MM/AAAA)
 			-Sala (FK)
 			
 		-Sala (apartamento/casa)
@@ -25,5 +25,5 @@ Banco de Dados PagAlu
 			
 		+Triggers
 			-Quando uma sala for deletada, deletar todas as contas dependendes a ela
-			-Quando um usuario excluir sua conta ou deixar uma sala, deletar sua dependencia na tabela [Usuario_Sala]
+			-Quando um usuario excluir sua conta ou deixar uma sala, deletar sua dependencia na tabela [Sala](menbros)
 		
