@@ -3,25 +3,17 @@ const Room = require('../model/Room');
 
 module.exports = {
     async index(request, response) {
-        const data = await Room.find({_id:request.id});
+        const data = await Room.find({adm:request.id});
         console.log(request.id)
         return response.json(data);
     },
 
     async create(request, response) {
-        const {nome} = request.body;
-        const user_id = request.headers.authorization;
+        const {nome,custo,id} = request.body;
 
-        const room = {
-            'nome': nome,
-            'adm': user_id,
-            'membros': [user_id]
-        }
-        console.log(room);
-        const {_id} = await Room.create(room);
-        console.log(_id);
-
-        return response.json({_id});
+        const apartamento = await Room.create({nome:nome,adm:id,custo:custo});
+        const idApartamento = apartamento[0]._id
+        return response.json({idApartamento});
     },
 
     async add_membro(request, response){

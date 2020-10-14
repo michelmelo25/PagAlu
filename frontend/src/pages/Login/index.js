@@ -7,13 +7,15 @@ const Login = ()=>{
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
-    const handleLogin = async (e)=>{
+    const submitLogin = async (e)=>{
         e.preventDefault();
+        console.log("OK")
         await axios.post('/login',{email:email,password:senha})
             .then(res=>{
                 localStorage.setItem('token',res.data.token);
                 localStorage.setItem('isAuth',true);
-                window.location.href = "htptp://localhost:3000";
+                localStorage.setItem('id',res.data.id);
+                window.location.href = "http://localhost:3000";
             })
             .catch(err=>{
                 console.log(err)
@@ -34,7 +36,7 @@ const Login = ()=>{
                             <Form.Label>Senha</Form.Label>
                             <Form.Control type="password" value={senha} onChange={e=>setSenha(e.target.value)} placeholder="Coloque sua senha"/>
                         </Form.Group>
-                        <Button variant="primary" onClick={handleLogin}>Logar</Button>
+                        <Button variant="primary" onClick={submitLogin}>Logar</Button>
                     </Form>
                 </div>
             </div>
