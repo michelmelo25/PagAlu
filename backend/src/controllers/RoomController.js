@@ -1,15 +1,21 @@
-const crypto = require('crypto');
+const Room = require('../model/Room');
 
 module.exports = {
     async index(request, response) {
-        return({message:"ok"});
+        const data = await Room.find({});
+
+        return response.json(data);
     },
 
     async create(request, response) {
-        return({message:"ok"});
+        const {andar,numero,custo} = request.body;
+
+        const novoMorador = await Room.create({andar,numero,morador:"",custo});
+
+        return response.json(novoMorador);
     },
 
-    async add(request, response){
+    async put(request, response){
         return({message:"ok"});
     },
 

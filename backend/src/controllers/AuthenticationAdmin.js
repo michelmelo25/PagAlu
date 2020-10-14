@@ -1,4 +1,4 @@
-const User = require('../model/User');
+const User = require('../model/UserAdmin');
 const config = require('../config/config');
 var jwt = require('jsonwebtoken');
 

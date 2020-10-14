@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
+import { Redirect } from 'react-router-dom'
 import './style.css';
 import axios from 'axios';
 
@@ -11,8 +12,9 @@ const Login = ()=>{
         e.preventDefault();
         await axios.post('/login',{email:email,password:senha})
             .then(res=>{
-                localStorage.setItem('authorization',res.data.token);
-                console.log(res.data)
+                localStorage.setItem('token',res.data.token);
+                localStorage.setItem('isAuth',true);
+                return <Redirect to='/home' />
             })
             .catch(err=>{
                 console.log(err)

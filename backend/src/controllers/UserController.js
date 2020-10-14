@@ -18,12 +18,14 @@ module.exports = {
         if(apartamento){
             return response.json({message:"apartamento já alugado"});
         } 
-        
-        const novoMorador = await User.create({nome, email, password});
+        const idP = apartamento._id;
+        const diaPagamento = new Date().getDate();
+        const ultimoPagamento = new Date().getMonth()+1;
+        const novoMorador = await User.create({nome, email, password, diaPagamento,ultimoPagamento,apartamento:idP});
 
         const id = morador._id;
 
-        const apartamentoAlugando = await Room.create({andar,numero,id});
+        const apartamentoAlugando = await Room.update({andar,numero,morador:id});
 
         return response.json(novoMorador._id);
     },
