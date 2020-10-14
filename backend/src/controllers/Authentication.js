@@ -23,9 +23,9 @@ module.exports = {
         var authorization = request.headers['Authorization'];
         if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
         
-        const _,token = authorization.split(' ');
+        const token = authorization.split(' ');
         
-        jwt.verify(token, config.secret_key, function(err, decoded) {
+        jwt.verify(token[1], config.secret_key, function(err, decoded) {
           if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
           
           request.id = decoded.id;
