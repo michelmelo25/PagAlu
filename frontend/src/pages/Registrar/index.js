@@ -9,16 +9,17 @@ const Registrar = ()=>{
     const [nome, setNome] = useState("");
 
 
-    const handleLogin = async (e)=>{
+    const submitRegistrar = (e)=>{
         e.preventDefault();
-        await axios.post('/admin/register',{nome:nome,email:email,password:senha})
+        
+        axios.post('/register',{nome:nome,email:email,password:senha})
             .then(res=>{
-                localStorage.setItem('authorization',res.data.token);
                 console.log(res.data)
             })
             .catch(err=>{
                 console.log(err)
             })
+            console.log("OK")
     }
 
     return(
@@ -39,7 +40,7 @@ const Registrar = ()=>{
                             <Form.Label>Senha</Form.Label>
                             <Form.Control type="password" value={senha} onChange={e=>setSenha(e.target.value)} placeholder="Coloque sua senha"/>
                         </Form.Group>
-                        <Button variant="primary" onClick={handleLogin}>Logar</Button>
+                        <Button variant="primary" onClick={submitRegistrar}>Registrar</Button>
                     </Form>
                 </div>
             </div>
