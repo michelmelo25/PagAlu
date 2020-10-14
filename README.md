@@ -4,6 +4,15 @@
 O projeto visa a criação de um sistema para controle de contas. O mesmo está sendo projetado para uso em residências onde um grupo de pessoas moram e, que por consequência, dividem as contas como: aluguel, água, energia, etc. A ideia é ter um local centralizado e seguro para compartilhamentos de contas do mês, bem como para atribuição de um responsável, por exemplo, para quitá-la.
 </p>
 
+
+<p>
+O projeto esta sendo desenvolvida com ***Node.js*** e ***React.js***.
+Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a baixo para instalar todas as dependencias nessesarias.
+	npm init
+Para iniciar o servidor utilize o comendo
+	npm start
+</p>
+
 1. **Funcionalidades**
 	O projeto tem como base a implementação das seguintes funcionalidades:
 	1. Tela inicial, onde o usuário pode ser encaminhado para uma tela de cadastro ou uma tela de login.
