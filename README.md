@@ -11,11 +11,11 @@ Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a
 <p> Para iniciar o servidor utilize o comendo.</p>
 <code>npm start</code>
 
+<br>
 
-
-<p>1. <b>Funcionalidades</b>
+1. <b>Funcionalidades</b>
 	O projeto tem como base a implementação das seguintes funcionalidades:
 	1. Tela inicial, onde o usuário pode ser encaminhado para uma tela de cadastro ou uma tela de login.
 	2. Tela de cadastro, onde o usuário pode realizar o seu cadastro na plataforma.
 	3. Tela de login, onde o usuário pode entrar no sistema usando um login e senha previamente cadastrados.
-	4. Tela de entrada vazia, que será apresentada quando o usuário não está em nenhuma sala de divisão de gastos, ou com listagem de salas, quando o usuário já estiver em uma sala de divisão de gastos. Nessa tela conterá alguns itens de menu, bem como a opção de adicionar uma nova sala e também entrar em uma já existente.</p>
+	4. Tela de entrada vazia, que será apresentada quando o usuário não está em nenhuma sala de divisão de gastos, ou com listagem de salas, quando o usuário já estiver em uma sala de divisão de gastos. Nessa tela conterá alguns itens de menu, bem como a opção de adicionar uma nova sala e também entrar em uma já existente.
