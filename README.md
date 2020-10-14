@@ -6,14 +6,15 @@ O projeto visa a criação de um sistema para controle de contas. O mesmo está 
 
 
 <p>
-O projeto esta sendo desenvolvida com ***Node.js*** e ***React.js***.
-Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a baixo para instalar todas as dependencias nessesarias.
-	npm init
-Para iniciar o servidor utilize o comendo
-	npm start
+O projeto esta sendo desenvolvida com <b>Node.js</b> e <b>React.js</b>. <br>
+Antes de iniciar o servidor e o Front-and pela primeira vez, utilize o comendo a baixo para instalar todas as dependencias nessesarias. <br>
+	`npm init`
+Para iniciar o servidor utilize o comendo.<br>
+	`npm start`
 </p>
 
-1. **Funcionalidades**
+
+1. <b>Funcionalidades</b>
 	O projeto tem como base a implementação das seguintes funcionalidades:
 	1. Tela inicial, onde o usuário pode ser encaminhado para uma tela de cadastro ou uma tela de login.
 	2. Tela de cadastro, onde o usuário pode realizar o seu cadastro na plataforma.
