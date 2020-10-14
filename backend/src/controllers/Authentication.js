@@ -14,19 +14,20 @@ module.exports = {
 
         var token = jwt.sign({id}, config.secret_key, {expiresIn: 300});
         token = 'Bearer '+token
-        return res.json({ auth: true, token: token });
+        return response.json({ auth: true, token: token });
     },
     async logout(request, response, next){
         response.json({ auth: false, token: null});
     },
     async verifyJWT(request, response, next){
-        var authorization = request.headers['Authorization'];
-        if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
-        
+        var authorization = request.headers['authorization'];
+        if (!authorization){
+            return response.status(401).json({ auth: false, message: 'No token provided.' });
+        }
         const token = authorization.split(' ');
         
         jwt.verify(token[1], config.secret_key, function(err, decoded) {
-          if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
+          if (err) return response.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
           
           request.id = decoded.id;
           next();
