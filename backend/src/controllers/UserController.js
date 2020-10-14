@@ -1,42 +1,38 @@
-const connection = require('../database/connections');
+const User = require('../model/User');
+const Room = require('../model/Room');
 
 module.exports = {
     async index(request, response) {
-        const users = await connection('users').select('*');
+        const data = await User.find({});
 
-        return response.json({users})
+        return response.json(data);
     },
 
     async create(request, response) {
-        const { name, email, senha } = request.body;
-
-        const [id] = await connection('users').insert({
-            name,
-            email,
-            senha
-        });
+        const {nome,email,password,andar,numero} = request.body;
+        const morador = await User.find({email});
+        const apartamento = await Room.find({andar,numero});
+        if(morador){
+            return response.json({message:"email já existe"});
+        }
+        if(apartamento){
+            return response.json({message:"apartamento já alugado"});
+        } 
         
-        return response.json({
-          id, name
-        })
+        const novoMorador = await User.create({nome, email, password});
+
+        const id = morador._id;
+
+        const apartamentoAlugando = await Room.create({andar,numero,id});
+
+        return response.json(novoMorador._id);
     },
 
     async delete(request, response) {
-        const id = request.headers.authorization;
-
-        await connection('users').where('id', id).delete();
-        
-        return response.status(204).send();
+        return response.json({message:"ok"});
     },
 
     async put(request, response) {
-        const { name, email, senha } = request.body;
-
-        
-        return response.json({
-          id, name
-        })
+        return response.json({message:"ok"});
     }
-
-    
 }

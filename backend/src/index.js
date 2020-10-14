@@ -1,5 +1,12 @@
 const express = require('express');
 
+const mongoose = require("mongoose");
+
+var mongoDB = 'mongodb+srv://devravache:20022002@pagalu.rkghc.mongodb.net/pagalu?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 const app = express();
 
 const bodyParser = require('body-parser');
