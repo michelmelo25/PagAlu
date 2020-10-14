@@ -9,21 +9,13 @@ module.exports = {
     },
 
     async create(request, response) {
-        const {nome,email,password,andar,numero} = request.body;
+        const {nome,email,password} = request.body;
         const morador = await User.find({email});
-        const apartamento = await Room.find({andar,numero});
         if(morador){
             return response.json({message:"email já existe"});
         }
-        if(apartamento){
-            return response.json({message:"apartamento já alugado"});
-        } 
         
         const novoMorador = await User.create({nome, email, password});
-
-        const id = morador._id;
-
-        const apartamentoAlugando = await Room.create({andar,numero,id});
 
         return response.json(novoMorador._id);
     },
