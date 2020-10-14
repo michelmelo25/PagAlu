@@ -44,6 +44,18 @@ module.exports = {
     },
 
     async delete(request, response){
-        return({message:"ok"});
+        const {id} = request.params;
+        const adm_id = request.headers.authorization;
+
+        const room = await Room.findById(id);
+
+        if(room.adm != adm_id){
+            return response.json("Usuario não altorizado!");
+        }
+
+        //add a remocao das contas vinculadas
+        await Room.remove({'_id': id});
+
+        return response.json("Remoção realizada com sucesso!");
     }
 }
