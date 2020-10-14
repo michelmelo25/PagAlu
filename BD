@@ -13,7 +13,7 @@ Banco de Dados PagAlu
 			-vencimento ()DD/MM/AAAA)
 			-Sala (FK)
 			
-		-Sala
+		-Sala (apartamento/casa)
 			-id (PK)
 			-nome
 			-criador
