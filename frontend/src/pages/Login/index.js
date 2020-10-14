@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
-import { Redirect } from 'react-router-dom'
 import './style.css';
 import axios from 'axios';
 
@@ -14,7 +13,7 @@ const Login = ()=>{
             .then(res=>{
                 localStorage.setItem('token',res.data.token);
                 localStorage.setItem('isAuth',true);
-                return <Redirect to='/home' />
+                window.location.href = "htptp://localhost:3000";
             })
             .catch(err=>{
                 console.log(err)

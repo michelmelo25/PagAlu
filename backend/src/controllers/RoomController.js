@@ -3,8 +3,8 @@ const Room = require('../model/Room');
 
 module.exports = {
     async index(request, response) {
-        const data = await Room.find({});
-
+        const data = await Room.find({_id:request.id});
+        console.log(request.id)
         return response.json(data);
     },
 

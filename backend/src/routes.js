@@ -15,7 +15,7 @@ routes.post('/login', Authentication.login);
 routes.post('/logout', Authentication.logout);
 
 
-routes.put('/room/:id', RoomController.add_membro);
+routes.put('/room/:id', Authentication.verifyJWT, RoomController.add_membro);
 routes.get('/rooms', Authentication.verifyJWT, RoomController.index);
 routes.post('/room', Authentication.verifyJWT, RoomController.create);
 
