@@ -6,7 +6,7 @@ import axios from 'axios';
 const Registrar = ()=>{
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [senha, setSenha] = useState("");
+    const [nome, setNome] = useState("");
 
 
     const handleLogin = async (e)=>{
