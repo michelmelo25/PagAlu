@@ -5,24 +5,25 @@ Banco de Dados PagAlu
 			-nome
 			-email
 			-senha
+			
 		-Conta
 			-id (PK)
 			-nome
 			-valor
 			-vencimento ()DD/MM/AAAA)
 			-Sala (FK)
+			
 		-Sala
 			-id (PK)
 			-nome
-		-Usuario_Sala
-			-id (PK)
-			-Usuario(PK-FK) [PK do usuario]
-			-Sala(PK-FK) [PK da Sala]
+			-criador
+			-menbros
 		
-		-Ligações
+		+Ligações
 			-Usuario_Sala NxN
 			-Conta_Sala 1xN
-		-Triggers
+			
+		+Triggers
 			-Quando uma sala for deletada, deletar todas as contas dependendes a ela
 			-Quando um usuario excluir sua conta ou deixar uma sala, deletar sua dependencia na tabela [Usuario_Sala]
 		
