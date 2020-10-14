@@ -17,7 +17,7 @@ routes.post('/admin/login', AuthenticationAdmin.login);
 routes.post('/admin/logout', AuthenticationAdmin.logout);
 routes.post('/admin/register', UserController.create);
 
-routes.get('/apartamento', AuthenticationAdmin.verifyJWT, RoomController.index);
-routes.post('/apartamento', AuthenticationAdmin.verifyJWT, RoomController.create);
+routes.get('/room', AuthenticationAdmin.verifyJWT, RoomController.index);
+routes.post('/room', AuthenticationAdmin.verifyJWT, RoomController.create);
 
 module.exports = routes;

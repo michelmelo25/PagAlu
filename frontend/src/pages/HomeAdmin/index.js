@@ -6,15 +6,29 @@ const Home = ()=>{
     const [localidade,setLocalidade] = useState("");
     const [custo,setCusto] = useState(0);
 
-    useEffect(async ()=>{
-        await axios.get('/admin/apartamento')
+    const token = localStorage.getItem('authorization');
+
+    const handleShow = async (e)=>{
+        e.preventDefault();
+        await axios.get('/room',{headers:{'authorization':token}})
             .then(res=>{
                 console.log(res.data);
             })
             .catch(err=>{
                 console.log(err);
             })
-    },[]);
+    }
+
+    const submitCriar = async (e)=>{
+        e.preventDefault();
+        await axios.post('/room',{headers:{'authorization':token}},{localidade,custo})
+            .then(res=>{
+                console.log(res.data);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+    }
     return(
         <div>
             <Form>
@@ -27,8 +41,8 @@ const Home = ()=>{
                     <Form.Control type="localidade" value={custo} onChange={e=>setCusto(e.target.value)}/>
                 </Form.Group>
             </Form>
-            <Button variant="primary">Criar</Button>
-
+            <Button variant="primary" onClick={submitCriar}>Criar</Button>
+            <Button variant="primary" onClick={handleShow}>Show</Button>
 
         </div>
         )
