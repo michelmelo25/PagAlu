@@ -1,8 +1,9 @@
 const express = require('express');
+const config = require('./config/config');
 
 const mongoose = require("mongoose");
 
-var mongoDB = 'mongodb+srv://devravache:20022002@pagalu.rkghc.mongodb.net/pagalu?retryWrites=true&w=majority';
+var mongoDB = 'mongodb+srv://'+config.db.username+':'+config.db.password+'@'+config.db.db_name+'.rkghc.mongodb.net/'+config.db.db_name+'?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

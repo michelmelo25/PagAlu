@@ -1,5 +1,4 @@
 const express = require('express');
-var jwt = require('jsonwebtoken');
 
 const UserController = require('./controllers/UserController');
 const RoomController = require('./controllers/RoomController');
