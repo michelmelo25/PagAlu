@@ -13,6 +13,18 @@ const UserSchema = new mongoose.Schema(
     password: {
         type: String,
         required: true
+    },
+    diaPagamento: {
+      type: Number,
+      required: true
+    },
+    ultimoPagamento: {
+      type: Number,
+      required: true
+    },
+    apartamento: {
+      type: String,
+      required: true
     }
   },
   {

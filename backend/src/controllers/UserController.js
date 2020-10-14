@@ -17,6 +17,7 @@ module.exports = {
         
         const novoMorador = await User.create({nome, email, password});
 
+
         return response.json(novoMorador._id);
     },
 

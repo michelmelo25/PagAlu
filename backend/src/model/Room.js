@@ -14,6 +14,10 @@ const RoomSchema = new mongoose.Schema(
     membros: {
         type: Array,
         required: true
+    },
+    custo: {
+      type: Number,
+      required: true
     }
   },
   {

@@ -2,25 +2,25 @@
     margin: 0;
     padding: 0;
 }
-.register-color-block{
+.login-color-block{
     background-color: #039be5;
     width: 50%;
     height: 100%;
     left: 0;
     position: absolute;
 }
-.register-space{
+.login-space{
     width: 50%;
     position: absolute;
     right: 0;
     height: 100%;
     padding: 200px;
 }
-.register-content{
+.login-content{
     width: 300px;
     height: 300px;
 }
-.register-label{
+.login-label{
     width: 300px;
     justify-items: center;
     align-items: center;

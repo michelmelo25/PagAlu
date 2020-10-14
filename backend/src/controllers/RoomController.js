@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const { update } = require('../model/Room');
 const Room = require('../model/Room');
 
 module.exports = {
@@ -34,10 +33,14 @@ module.exports = {
         
         if(room.adm === adm_id){
             const update = await Room.update({'_id': id},{$push:{'membros': user_id}});
-            console.log(update);
         }
 
         return response.json(room);
+
+    },
+
+    async put(request, response){
+        return({message:"ok"});
     },
 
     async delete(request, response){

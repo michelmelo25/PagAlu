@@ -8,6 +8,10 @@ import Home from './pages/Home/index';
 import Registrar from './pages/Registrar/index';
 import Login from './pages/Login/index';
 
+import HomeAdmin from './pages/HomeAdmin/index';
+import RegistrarAdmin from './pages/RegistrarAdmin/index';
+import LoginAdmin from './pages/LoginAdmin/index';
+
 axios.defaults.baseURL = 'http://localhost:3333';
 
 ReactDOM.render(
@@ -17,6 +21,10 @@ ReactDOM.render(
           <Route path="/" exact={true} component={Home}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Registrar}/>
+
+          <Route path="/admin" exact={true} component={HomeAdmin}/>
+          <Route path="/admin/login" component={LoginAdmin}/>
+          <Route path="/admin/register" component={RegistrarAdmin}/>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
