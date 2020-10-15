@@ -5,13 +5,14 @@ const Room = require('../model/Room');
 module.exports = {
     //index lista todas as salas
     async index(request, response) {
-        const data = await Room.find();
+        //const data = await Room.find();
+        const data = await Room.findOne({'adm':request.id});
+        console.log(request.id)
         return response.json(data);
     },
 
     async create(request, response) {
-        const {nome} = request.body;
-        const user_id = request.headers.authorization;
+        const {nome,custo,id} = request.body;
 
         const room = {
             'nome': nome,

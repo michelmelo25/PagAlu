@@ -12,12 +12,9 @@ const app = express();
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
-app.use((request,response,next)=>{
-    response.header("Access-Control-Allow-Origin","*");
-    response.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
