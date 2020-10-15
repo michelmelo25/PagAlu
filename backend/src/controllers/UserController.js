@@ -12,9 +12,9 @@ module.exports = {
         const id_room = request.params;
         const id_user = request.id;
 
-        var listUsers = [];
         const sala = Room.find({id:id_room});
-        const data = await User.find({'_id':sala.membros});
+        const data = User.find({id:sala.membros});
+
         //const data = await Room.findOne({'adm':request.id});
         //console.log(request.id)
         return response.json(data);

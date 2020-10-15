@@ -14,6 +14,7 @@ const Room = (props)=>{
         await axios.get('/membros/'+id,{headers:{'authorization':token}})
             .then(res=>{
                 setMembros(res.data);
+                console.log("membros");
                 console.log(res.data);
             })
             .catch(err=>{
