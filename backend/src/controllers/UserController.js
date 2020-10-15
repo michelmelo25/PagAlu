@@ -7,6 +7,18 @@ module.exports = {
         const data = await User.find();
         return response.json(data);
     },
+    
+    async indexMembros(request, response) {
+        const id_room = request.params;
+        const id_user = request.id;
+
+        var listUsers = [];
+        const sala = Room.find({id:id_room});
+        const data = await User.find({'_id':sala.membros});
+        //const data = await Room.findOne({'adm':request.id});
+        //console.log(request.id)
+        return response.json(data);
+    },
 
     async create(request, response) {
         const {nome,email,password} = request.body;

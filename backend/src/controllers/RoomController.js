@@ -10,13 +10,6 @@ module.exports = {
         //console.log(request.id)
         return response.json(data);
     },
-    async indexMembros(request, response) {
-        const id = request.params;
-        const data = await Room.find({id});
-        //const data = await Room.findOne({'adm':request.id});
-        //console.log(request.id)
-        return response.json(data);
-    },
 
     async create(request, response) {
         const {nome} = request.body;

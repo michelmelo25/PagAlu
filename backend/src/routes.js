@@ -25,6 +25,6 @@ routes.post('/conta', ContaController.create);
 routes.get('/contas', ContaController.index);
 routes.get('/conta/:id', ContaController.get);
 
-routes.get('/membros/:id', Authentication.verifyJWT, RoomController.indexMembros);
+routes.get('/membros/:id', Authentication.verifyJWT, UserController.indexMembros);
 
 module.exports = routes;
