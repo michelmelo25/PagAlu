@@ -2,8 +2,11 @@ import React,{useEffect,useState} from "react";
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
 
+import Room from '../../components/Room/Room';
+
 const Home = ()=>{
     const token = localStorage.getItem('token');
+    const [salas,setSalas] = useState([])
 
     if(!localStorage.getItem('isAuth')){
         window.location.href = "http://localhost:3000/login"
@@ -11,6 +14,7 @@ const Home = ()=>{
     useEffect(async ()=>{
         await axios.get('/rooms',{headers:{'authorization':token}})
             .then(res=>{
+                setSalas(res.data);
                 console.log(res.data);
             })
             .catch(err=>{
@@ -35,9 +39,12 @@ const Home = ()=>{
                 
             })
     }
+    const sala = salas.map(s =>{
+        return <Room props={s}/>
+    })
     return(
         <div>
-            
+            {sala}
             <Button variant="primary" onClick={submitEditarUser}>Editar Conta</Button>
             <Button variant="primary" onClick={submitCriarRoom}>Criar Apartamento</Button>
         </div>
