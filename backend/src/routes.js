@@ -19,9 +19,10 @@ routes.post('/logout', Authentication.logout);
 routes.put('/room/:id', Authentication.verifyJWT, RoomController.add_membro);
 routes.get('/rooms', RoomController.index); //, Authentication.verifyJWT
 routes.post('/room', RoomController.create); //, Authentication.verifyJWT
-routes.delete('/room/:id', RoomController.delete);
+routes.delete('/room/del/:id', RoomController.delete);
 
 routes.post('/conta', ContaController.create);
 routes.get('/contas', ContaController.index);
+routes.get('/conta/:id', ContaController.get);
 
 module.exports = routes;

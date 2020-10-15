@@ -8,6 +8,21 @@ module.exports = {
         return response.json(contas);
     },
 
+    async get(request, response) {
+        const {id} = request.params;
+        const user_id = request.headers.authorization;
+        const rooms = await Room.find({"membros": user_id});
+
+        rooms.forEach(async function(room){
+            if(room.contas.includes(id)){
+                const conta = await Conta.findById(id);
+                return response.json(conta);
+            }
+        });
+
+        //return response.json("Operação não altorizada");
+    },
+
     async create(request, response) {
         const {nome, valor, vencimento} = request.body;
         const room_id = request.headers.room;
@@ -29,13 +44,6 @@ module.exports = {
         const conta = await Conta.updateOne({'_id': conta_id},{$push:{nome, valor, "vencimento":data}});
 
         return response.json("Conta Atualizada!");
-    },
-
-    async get(request, response) {
-        const conta_id = request.headers.conta;
-        const conta = await Conta.findById({'_id': conta_id});
-
-        return response.json(conta);
     },
     
     async delete(request, response) {

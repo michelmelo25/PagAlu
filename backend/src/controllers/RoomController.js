@@ -5,9 +5,9 @@ const Room = require('../model/Room');
 module.exports = {
     //index lista todas as salas
     async index(request, response) {
-        //const data = await Room.find();
-        const data = await Room.findOne({'adm':request.id});
-        console.log(request.id)
+        const data = await Room.find();
+        //const data = await Room.findOne({'adm':request.id});
+        //console.log(request.id)
         return response.json(data);
     },
 
@@ -52,11 +52,10 @@ module.exports = {
         if(room.adm != adm_id){
             return response.json("Usuario não altorizado!");
         }
-
-        //add a remocao das contas vinculadas
-        //problema na remocao das contas vinculadas
-        //await Conta.removeListener(room.contas);
-        //await Room.remove({'_id': id});
+        //Remove as contas cadastradas nessa room
+        await Conta.remove({'_id':room.contas});
+        //Remove a room
+        await Room.remove({'_id': id});
 
 
         return response.json("Remoção realizada com sucesso!");
