@@ -16,7 +16,7 @@ const CriarRoom = ()=>{
     const submitCriar = async (e)=>{
         e.preventDefault();
         
-        await axios.post('/room',{nome:nome,custo:custo,id:id},{headers:{'authorization':token}})
+        await axios.post('/room',{nome:nome},{headers:{'authorization':token}})
             .then(res=>{
                 console.log(res.data)
             })
@@ -34,10 +34,6 @@ const CriarRoom = ()=>{
                         <Form.Group className="register-label">
                             <Form.Label>Nome</Form.Label>
                             <Form.Control type="name" value={nome} onChange={e=>setNome(e.target.value)} placeholder="Coloque sua senha"/>
-                        </Form.Group>
-                        <Form.Group className="register-label">
-                            <Form.Label>Custo</Form.Label>
-                            <Form.Control type="custo" value={custo} onChange={e=>setCusto(e.target.value)} placeholder="Coloque sua senha"/>
                         </Form.Group>
                         <Button variant="primary" onClick={submitCriar}>Criar</Button>
                     </Form>

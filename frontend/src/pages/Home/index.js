@@ -23,10 +23,22 @@ const Home = ()=>{
         e.preventDefault();
         window.location.href="http://localhost:3000/apartamento";
     }
+
+    const submitEditarUser = async (e)=>{
+        e.preventDefault();
+        await axios.get('/rooms',{headers:{'authorization':token}})
+            .then(res=>{
+                console.log(res.data);
+            })
+            .catch(err=>{
+                console.log(err);
+                
+            })
+    }
     return(
         <div>
             
-            <Button variant="primary">Editar Conta</Button>
+            <Button variant="primary" onClick={submitEditarUser}>Editar Conta</Button>
             <Button variant="primary" onClick={submitCriarRoom}>Criar Apartamento</Button>
         </div>
     );

@@ -17,9 +17,9 @@ routes.post('/logout', Authentication.logout);
 
 
 routes.put('/room/:id', Authentication.verifyJWT, RoomController.add_membro);
-routes.get('/rooms', RoomController.index); //, Authentication.verifyJWT
-routes.post('/room', RoomController.create); //, Authentication.verifyJWT
-routes.delete('/room/del/:id', RoomController.delete);
+routes.get('/rooms', Authentication.verifyJWT, RoomController.index); //, Authentication.verifyJWT
+routes.post('/room', Authentication.verifyJWT, RoomController.create); //, Authentication.verifyJWT
+routes.delete('/room/del/:id', Authentication.verifyJWT, RoomController.delete);
 
 routes.post('/conta', ContaController.create);
 routes.get('/contas', ContaController.index);
