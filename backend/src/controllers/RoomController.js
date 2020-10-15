@@ -1,10 +1,11 @@
 const crypto = require('crypto');
+const Conta = require('../model/Conta');
 const Room = require('../model/Room');
 
 module.exports = {
+    //index lista todas as salas
     async index(request, response) {
-        const data = await Room.find({_id:request.id});
-        console.log(request.id)
+        const data = await Room.find();
         return response.json(data);
     },
 
@@ -17,9 +18,7 @@ module.exports = {
             'adm': user_id,
             'membros': [user_id]
         }
-        console.log(room);
         const {_id} = await Room.create(room);
-        console.log(_id);
 
         return response.json({_id});
     },
@@ -32,7 +31,7 @@ module.exports = {
         const room = await Room.findById(id);
         
         if(room.adm === adm_id){
-            const update = await Room.update({'_id': id},{$push:{'membros': user_id}});
+            const update = await Room.updateOne({'_id': id},{$push:{'membros': user_id}});
         }
 
         return response.json(room);
@@ -54,7 +53,10 @@ module.exports = {
         }
 
         //add a remocao das contas vinculadas
-        await Room.remove({'_id': id});
+        //problema na remocao das contas vinculadas
+        //await Conta.removeListener(room.contas);
+        //await Room.remove({'_id': id});
+
 
         return response.json("Remoção realizada com sucesso!");
     }
